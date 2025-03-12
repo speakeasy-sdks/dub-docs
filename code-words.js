@@ -61,7 +61,7 @@ const injectCodeWords = (options) => {
 const installWebComponent = async (options) => {
   const script = document.createElement('script')
   script.type = 'module'
-  script.src = "https://code-words-ui.vercel.app/index.es.js"
+  script.src = "https://code-words.speakeasy-cloud.com/assets/index.es.js"
   document.head.appendChild(script)
   script.addEventListener('load', async () => {
     // Initial load
