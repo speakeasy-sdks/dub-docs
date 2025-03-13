@@ -6,7 +6,8 @@ const codeWordOptions = {
   toggleShortcut: "$mod+s",
   suggestions: [
     'Find me my top 5 visted links'
-  ]
+  ],
+  publishingToken: 'super-secret-token'
   // Note: codeLang is sniffed from the URL
 }
 /* --------------------------------------------- */
