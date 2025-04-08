@@ -5,7 +5,7 @@ const codeWordOptions = {
   specSrc: "https://spec.speakeasy.com/dub/dub/dub-with-code-samples",
   toggleShortcut: "$mod+s",
   suggestions: [
-    'Find me my top 5 visted links'
+    'Find me my top 5 visited links'
   ],
   publishingToken: 'super-secret-token'
   // Note: codeLang is sniffed from the URL
