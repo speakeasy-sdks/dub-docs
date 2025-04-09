@@ -2,8 +2,8 @@
 // Define the component options here
 /* --------------------------------------------- */
 const codeWordOptions = {
-  specSrc: "https://spec.speakeasy.com/dub/dub/dub-with-code-samples",
-  toggleShortcut: "$mod+s",
+  specSrc: 'https://spec.speakeasy.com/dub/dub/dub-with-code-samples',
+  toggleShortcut: '$mod+s',
   suggestions: [
     'Find me my top 5 visited links'
   ],
@@ -41,7 +41,7 @@ const injectCodeWords = (options) => {
   }
 
   // Create code words widget
-  const codeWords = document.createElement("code-words-commandbar")
+  const codeWords = document.createElement('code-words-commandbar')
   Object.entries({ ...options, codeLang }).forEach(([key, value]) => {
     if (Array.isArray(value)) {
       value = JSON.stringify(value)
@@ -62,7 +62,7 @@ const injectCodeWords = (options) => {
 const installWebComponent = async (options) => {
   const script = document.createElement('script')
   script.type = 'module'
-  script.src = "https://code-words.speakeasy-cloud.com/assets/index.es.js"
+  script.src = 'https://snippet-ai.speakeasy-cloud.com/assets/index.es.js'
   document.head.appendChild(script)
   script.addEventListener('load', async () => {
     // Initial load
