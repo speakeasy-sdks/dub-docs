@@ -12,8 +12,6 @@ const codeWordOptions = {
   // Note: codeLang is sniffed from the URL
 }
 
-const triggerButtonStyle = 'mx-auto max-w-fit border border-neutral-300 px-5 py-2 text-sm font-medium text-neutral-500 shadow-sm rounded-lg'
-
 /* --------------------------------------------- */
 
 /* Bootstrapping code */
@@ -61,7 +59,7 @@ const injectCodeWords = (options) => {
   const triggerButton = document.createElement('button')
   triggerButton.innerText = 'Generate Example Code'
   triggerButton.id = 'snippet-ai-trigger'
-  triggerButton.className = triggerButtonStyle
+  triggerButton.className = "mx-auto max-w-fit border border-neutral-300 px-5 py-2 text-sm font-medium text-neutral-500 shadow-sm rounded-lg"
   codeWords.appendChild(triggerButton)
 
   // Attach to the dom just after the usage header
