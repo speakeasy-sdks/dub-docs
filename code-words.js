@@ -5,11 +5,15 @@ const codeWordOptions = {
   specSrc: 'https://spec.speakeasy.com/dub/dub/dub-with-code-samples',
   toggleShortcut: '$mod+s',
   suggestions: [
-    'Find me my top 5 visited links'
+    'How do I create a new link?',
+    'Create a function to get my top 5 visited links',
   ],
   publishingToken: 'super-secret-token'
   // Note: codeLang is sniffed from the URL
 }
+
+const triggerButtonStyle = 'mx-auto max-w-fit border border-neutral-300 px-5 py-2 text-sm font-medium text-neutral-500 shadow-sm rounded-lg'
+
 /* --------------------------------------------- */
 
 /* Bootstrapping code */
@@ -41,7 +45,7 @@ const injectCodeWords = (options) => {
   }
 
   // Create code words widget
-  const codeWords = document.createElement('code-words-commandbar')
+  const codeWords = document.createElement('snippet-ai')
   Object.entries({ ...options, codeLang }).forEach(([key, value]) => {
     if (Array.isArray(value)) {
       value = JSON.stringify(value)
@@ -50,9 +54,14 @@ const injectCodeWords = (options) => {
   })
 
   // Create the trigger button
+  if (document.getElementById('snippet-ai-trigger')) {
+    return
+  }
+
   const triggerButton = document.createElement('button')
   triggerButton.innerText = 'Generate Example Code'
-  triggerButton.className = 'pointer-events-auto rounded-xl py-1.5 pl-3.5 pr-3 text-gray-400 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/20 hover:ring-gray-600/25 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 focus:outline-primary'
+  triggerButton.id = 'snippet-ai-trigger'
+  triggerButton.className = triggerButtonStyle
   codeWords.appendChild(triggerButton)
 
   // Attach to the dom just after the usage header
