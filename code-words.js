@@ -35,14 +35,14 @@ const injectCodeWords = (options) => {
     codeLang = 'php'
     previousComponent = document.getElementById('1-prerequisites')
   }
-  // There's also a Ruby SDK, but we don't support that yet in code words
+  // There's also a Ruby SDK, but we don't support that yet in Snippet-AI
 
   // Filter out landing pages, unsupported languages, etc.
   if (!codeLang || !previousComponent) {
     return;
   }
 
-  // Create code words widget
+  // Create Snippet-AI widget
   const codeWords = document.createElement('snippet-ai')
   Object.entries({ ...options, codeLang }).forEach(([key, value]) => {
     if (Array.isArray(value)) {
