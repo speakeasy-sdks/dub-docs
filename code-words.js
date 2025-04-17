@@ -2,8 +2,8 @@
 // Define the component options here
 /* --------------------------------------------- */
 const codeWordOptions = {
-  specSrc: 'https://spec.speakeasy.com/dub/dub/dub-with-code-samples',
-  toggleShortcut: '$mod+s',
+  _specSrc: "https://spec.speakeasy.com/dub/dub/dub-with-code-samples",
+  toggleShortcut: "$mod+s",
   suggestions: [
     'How do I create a new link?',
     'Create a function to get my top 5 visited links',
