@@ -1,12 +1,18 @@
 /* --------------------------------------------- */
 // Define the component options here
 /* --------------------------------------------- */
+
+const TRIGGER_ELEMENT_ID = 'snippet-ai-trigger'
+
 const codeWordOptions = {
   _specSrc: "https://spec.speakeasy.com/dub/dub/dub-with-code-samples",
   toggleShortcut: "$mod+s",
+  triggerElementId: TRIGGER_ELEMENT_ID,
   suggestions: [
     'How do I create a new link?',
-    'Create a function to get my top 5 visited links',
+    'How do I create a branded short link?',
+    'How do I create generate a QR code?',
+    'How do I create many links at once?',
   ],
   publishingToken: 'super-secret-token'
   // Note: codeLang is sniffed from the URL
@@ -25,7 +31,11 @@ const injectCodeWords = (options) => {
     // TypeScript is different than the others
     codeLang = 'typescript'
     previousComponent = document.getElementById('install')
-  } else if (pathname.startsWith('/sdks/quickstart/go')) {
+  }  else if (pathname.startsWith('/sdks/quickstart/typescript')) {
+    codeLang = 'typescript'
+    previousComponent = document.getElementById('1-prerequisites')
+  } 
+  else if (pathname.startsWith('/sdks/quickstart/go')) {
     codeLang = 'go'
     previousComponent = document.getElementById('1-prerequisites')
   } else if (pathname.startsWith('/sdks/quickstart/python')) {
@@ -52,18 +62,18 @@ const injectCodeWords = (options) => {
   })
 
   // Create the trigger button
-  if (document.getElementById('snippet-ai-trigger')) {
+  if (document.getElementById(TRIGGER_ELEMENT_ID)) {
     return
   }
 
   const triggerButton = document.createElement('button')
   triggerButton.innerText = 'Generate Example Code'
-  triggerButton.id = 'snippet-ai-trigger'
+  triggerButton.id = TRIGGER_ELEMENT_ID
   triggerButton.className = "mx-auto max-w-fit border border-neutral-300 px-5 py-2 text-sm font-medium text-neutral-500 shadow-sm rounded-lg"
-  codeWords.appendChild(triggerButton)
 
   // Attach to the dom just after the usage header
   previousComponent.insertAdjacentElement('beforebegin', codeWords)
+  previousComponent.insertAdjacentElement('afterend', triggerButton)
 }
 
 const installWebComponent = async (options) => {
